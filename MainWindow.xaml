@@ -6,7 +6,69 @@
         xmlns:local="clr-namespace:Coffee_Shop_Midterm"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <Grid Background="#FFDA4747">
+        <Label Content="Coffee" Margin="0,0,640,383"/>
+
+
+        <Label Content="Tea" Margin="0,122,617,229"/>
+
+        <Label Content="Breakfast" Margin="0,282,666,96"/>
+        
+        <Button x:Name="DarkButton"
+            Content="Dark" Margin="0,51,666,331" Click="Dark_Click"/>
+
+        <Button x:Name="MediumButton"
+            Content="Medium" Margin="139,51,527,331" Click="MediumButton_Click"/>
+
+        <Button x:Name="LightButton"
+            Content="Light" Margin="278,51,388,331" Click="LightButton_Click"/>
+
+        <Button x:Name="BlackButton"
+            Content="Black" Margin="0,212,666,170" Click="BlackButton_Click"/>
+
+        <Button x:Name="GreenButton"
+            Content="Green" Margin="144,212,522,170" Click="GreenButton_Click"/>
+
+        <Button  x:Name="ChaiButton"
+            Content="Chai" Margin="283,212,383,170" Click="ChaiButton_Click"/>
+
+        <Button x:Name="SandWichButton"
+            Content="Sandwich" Margin="0,343,666,39" Click="SandWichButton_Click"/>
+
+        <Button  x:Name="PastryButton"
+            Content="Pastry" Margin="139,343,527,39" Click="PastryButton_Click"/>
+
+        <Button  x:Name="FruitButton"
+            Content="Fruit" Margin="278,343,388,39" Click="FruitButton_Click"/>
+        
+        <Label Content="Customer Name" Margin="430,0,203,357"/>
+        <RichTextBox Margin="430,145,203,111">
+            <FlowDocument>
+                <Paragraph>
+                    <Run x:Name="newOrders"
+                        Text="RichTextBox"/>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
+        <RichTextBox Margin="623,101,10,111">
+            <FlowDocument>
+                <Paragraph>
+                    <Run x:Name ="oldOrders"
+                            Text="RichTextBox"/>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
+        
+        <ComboBox x:Name="cmbChooseOrderName"
+            Margin="623,46,10,343" RenderTransformOrigin="0.492,0.897" SelectionChanged="cmbChooseOrderName_SelectionChanged"/>
+
+        <!--<Button  x:Name="CompletePurchaseButton"
+            Content="Complete Purchase" Margin="430,333,203,49" Click="CompletePurchaseButton_Click"/>-->
+
+        <TextBox  x:Name="txtName"
+            TextWrapping="Wrap" Text="TextBox" Margin="430,77,211,294" />
+       
+
 
     </Grid>
 </Window>
