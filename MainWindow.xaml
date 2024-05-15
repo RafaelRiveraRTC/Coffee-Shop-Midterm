@@ -62,8 +62,8 @@
         <ComboBox x:Name="cmbChooseOrderName"
             Margin="623,46,10,343" RenderTransformOrigin="0.492,0.897" SelectionChanged="cmbChooseOrderName_SelectionChanged"/>
 
-        <!--<Button  x:Name="CompletePurchaseButton"
-            Content="Complete Purchase" Margin="430,333,203,49" Click="CompletePurchaseButton_Click"/>-->
+        <Button  x:Name="CompletePurchaseButton"
+            Content="Complete Purchase" Margin="430,333,203,49" Click="CompletePurchaseButton_Click"/>
 
         <TextBox  x:Name="txtName"
             TextWrapping="Wrap" Text="TextBox" Margin="430,77,211,294" />

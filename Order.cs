@@ -43,7 +43,7 @@ namespace Coffee_Shop_Midterm
 
             // Methods
             string formattedString = "";
-            // Student ID
+            // 
             formattedString += $"Order Number: {_orderNumber}\n";
             // Student Name
             formattedString += $"Student Name: {_customerName}\n";

@@ -22,7 +22,7 @@ namespace Coffee_Shop_Midterm
         public MainWindow()
         {
             InitializeComponent();
-            currentOrder = new Order("", new List<Product>(), "", .1m);//In order for this to work you need to pass through the parameters you set up in the order class
+            currentOrder = new Order("", new List<Product>(), "", 0.1m);//In order for this to work you need to pass through the parameters you set up in the order class
             cmbChooseOrderName.ItemsSource = previousOrders;
         }
 
@@ -87,12 +87,14 @@ namespace Coffee_Shop_Midterm
             if (!string.IsNullOrEmpty(customerName))
             {
                 currentOrder.CustomerName = customerName;//Assign the name
-                previousOrders.Add(currentOrder);
+                previousOrders.AddRange(currentOrder.ProductsInOrder);
                 cmbChooseOrderName.ItemsSource = previousOrders;//Reset With Updated List
                 cmbChooseOrderName.Items.Refresh();
-             
+
                 txtName.Clear();
-                currentOrder = new Order("", new List<Product>(), "", 1m);
+                newOrders.Text = "";
+
+                currentOrder = new Order("", new List<Product>(), "", 0.1m);
 
                 MessageBox.Show("Thank You For Your Selection Your order will be out in a moment");
             }
@@ -104,11 +106,13 @@ namespace Coffee_Shop_Midterm
 
         }
 
-        private void cmbChooseOrderName_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            Order selectedOrder = cmbChooseOrderName.SelectedItem as Order;
-
-            newOrders.Text = selectedOrder.FormatOrder();
-        }
+      private void cmbChooseOrderName_SelectionChanged(object sender, SelectionChangedEventArgs e)
+{
+    if (cmbChooseOrderName.SelectedItem != null)
+    {
+        Order selectedOrder = cmbChooseOrderName.SelectedItem as Order;
+        oldOrders.Text = selectedOrder.FormatOrder();
+    }
+}
     }
 }

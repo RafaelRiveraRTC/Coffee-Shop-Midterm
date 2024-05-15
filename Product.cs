@@ -23,7 +23,7 @@ namespace Coffee_Shop_Midterm
 
         public override string ToString()
         {
-            return $"{_productName}-{_price}";
+            return $"{_productName}-{_price:c}";
         }
     }
 }
