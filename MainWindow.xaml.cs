@@ -16,7 +16,8 @@ namespace Coffee_Shop_Midterm
     /// </summary>
     public partial class MainWindow : Window
     {
-        List<Product> previousOrders = new List<Product>(); // Will hold all completed orders
+        List<Order> previousOrders = new List<Order>(); // Will hold all completed orders
+        //it is still a list but you have to change the data type the list could store,but when you are adding to the comboo box,you can't store a list of order numbers into a list of products
         Inventory inventory = new Inventory(); // Used to access list of product
         Order currentOrder; // Class scope variable to easily pass the current order around.
         public MainWindow()
@@ -87,7 +88,7 @@ namespace Coffee_Shop_Midterm
             if (!string.IsNullOrEmpty(customerName))
             {
                 currentOrder.CustomerName = customerName;//Assign the name
-                previousOrders.AddRange(currentOrder.ProductsInOrder);
+                previousOrders.Add(currentOrder);
                 cmbChooseOrderName.ItemsSource = previousOrders;//Reset With Updated List
                 cmbChooseOrderName.Items.Refresh();
 
@@ -95,6 +96,8 @@ namespace Coffee_Shop_Midterm
                 newOrders.Text = "";
 
                 currentOrder = new Order("", new List<Product>(), "", 0.1m);
+
+                //because we have changed the data type our list accepts,we can now input the order number instead of the prodcut list?
 
                 MessageBox.Show("Thank You For Your Selection Your order will be out in a moment");
             }
@@ -107,12 +110,36 @@ namespace Coffee_Shop_Midterm
         }
 
       private void cmbChooseOrderName_SelectionChanged(object sender, SelectionChangedEventArgs e)
-{
-    if (cmbChooseOrderName.SelectedItem != null)
-    {
-        Order selectedOrder = cmbChooseOrderName.SelectedItem as Order;
-        oldOrders.Text = selectedOrder.FormatOrder();
+      {
+
+     
+
+            foreach (Order order in previousOrders)
+            {
+
+                if (order.OrderNumber == cmbChooseOrderName.Text)
+                {
+                    oldOrders.Text = order.FormatOrder();
+
+
+                }
+
+        }
+
+
+
+        //your checking is the comboBox text equal to this order's number,if yes we will loop through our list of orders,when we display the order inside of our rich text box
+
+        //Order orderNumber = cmbChooseOrderName.Text
+
+
+        //loop through the list of orders to find the order that matches the selection of the combo box
+
+
+
     }
-}
+
+
+
     }
 }

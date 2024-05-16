@@ -35,11 +35,7 @@ namespace Coffee_Shop_Midterm
 
         public string FormatOrder()
         {
-            decimal subtotal = Subtotal();
-
-            decimal taxAmount = Subtax();
-
-            decimal total = subtotal + taxAmount;
+         
 
             // Methods
             string formattedString = "";
@@ -58,6 +54,12 @@ namespace Coffee_Shop_Midterm
             {
                 formattedString += $"{product.ProductName} - {product.Price}\n";
             }
+
+            decimal subtotal = Subtotal();
+
+            decimal taxAmount = Subtax();
+
+            decimal total = subtotal + taxAmount;
 
             formattedString += $"\nSubtotal : ${subtotal}\n";
             formattedString += $"Tax: {_tax:P1}\n";
@@ -90,7 +92,7 @@ namespace Coffee_Shop_Midterm
 
         public override string ToString()
         {
-            return $"{_customerName} - {_orderNumber}";
+            return _orderNumber;
         }
     }
 }
