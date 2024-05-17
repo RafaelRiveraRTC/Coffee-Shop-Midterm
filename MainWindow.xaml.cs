@@ -89,6 +89,7 @@ namespace Coffee_Shop_Midterm
             {
                 currentOrder.CustomerName = customerName;//Assign the name
                 previousOrders.Add(currentOrder);
+                cmbChooseOrderName.ItemsSource = null;
                 cmbChooseOrderName.ItemsSource = previousOrders;//Reset With Updated List
                 cmbChooseOrderName.Items.Refresh();
 
@@ -112,32 +113,24 @@ namespace Coffee_Shop_Midterm
       private void cmbChooseOrderName_SelectionChanged(object sender, SelectionChangedEventArgs e)
       {
 
-     
 
-            foreach (Order order in previousOrders)
+
+            if (cmbChooseOrderName.SelectedItem is Order selectedOrder)
             {
-
-                if (order.OrderNumber == cmbChooseOrderName.Text)
-                {
-                    oldOrders.Text = order.FormatOrder();
+                oldOrders.Text = selectedOrder.FormatOrder();
+            }
 
 
-                }
+            //your checking is the comboBox text equal to this order's number,if yes we will loop through our list of orders,when we display the order inside of our rich text box
+
+            //Order orderNumber = cmbChooseOrderName.Text
+
+
+            //loop through the list of orders to find the order that matches the selection of the combo box
+
+
 
         }
-
-
-
-        //your checking is the comboBox text equal to this order's number,if yes we will loop through our list of orders,when we display the order inside of our rich text box
-
-        //Order orderNumber = cmbChooseOrderName.Text
-
-
-        //loop through the list of orders to find the order that matches the selection of the combo box
-
-
-
-    }
 
 
 
